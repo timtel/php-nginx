@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ./src:/src
+            - ./conf:/etc/nginx/conf.d
+            - ./logs:/var/log/nginx
+    php:
+        image: php:7.1-fpm
+        volumes:
+            - ./src:/src
